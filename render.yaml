@@ -1,12 +1,12 @@
 
 services:
-  # Fastify Backend Service (Zero Cost - Free Tier)
+  # Fastify Backend Service
   - type: web
     name: magajico-backend
     env: node
     region: oregon
     plan: free
-    buildCommand: npm ci && npm run build --workspace=packages/shared && npm run build --workspace=apps/backend
+    buildCommand: npm ci --legacy-peer-deps && npm run build --workspace=packages/shared && npm run build --workspace=apps/backend
     startCommand: cd apps/backend && npm start
     envVars:
       - key: NODE_ENV
@@ -46,7 +46,7 @@ services:
     healthCheckPath: /health
     autoDeploy: true
     
-  # FastAPI ML Service (Zero Cost - Free Tier)
+  # FastAPI ML Service
   - type: web
     name: magajico-ml-service
     env: python

@@ -1,9 +1,9 @@
 
 {
-  "buildCommand": "npm install --legacy-peer-deps && npm install --workspace=packages/shared --legacy-peer-deps && npm install --workspace=apps/frontend --legacy-peer-deps && cd apps/frontend && npm run build",
+  "buildCommand": "npm install --workspace=packages/shared --legacy-peer-deps && npm install --workspace=apps/frontend --legacy-peer-deps && cd apps/frontend && npm run build",
   "outputDirectory": "apps/frontend/.next",
   "framework": "nextjs",
-  "installCommand": "npm install --legacy-peer-deps --no-audit",
+  "installCommand": "npm install --legacy-peer-deps --no-audit --ignore-scripts",
   "functions": {
     "apps/frontend/src/app/api/**/*.ts": {
       "maxDuration": 30

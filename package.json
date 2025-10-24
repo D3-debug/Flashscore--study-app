@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "build:shared": "npm run build --workspace=packages/shared",
+    "build:backend": "npm run build --workspace=@magajico/backend",
     "build:frontend": "npm run build --workspace=@magajico/frontend",
-    "build": "npm run build:shared && npm run build:frontend",
+    "build": "npm run build:shared && npm run build:backend && npm run build:frontend",
+    "clean": "rm -rf apps/frontend/.next apps/backend/dist node_modules/.cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

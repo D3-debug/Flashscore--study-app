@@ -17,8 +17,11 @@ const nextConfig = {
   swcMinify: true,
   generateEtags: true,
   
-  // Mobile optimizations
+  // Output configuration
   output: process.env.VERCEL ? 'standalone' : undefined,
+  
+  // Optimize images for production
+  productionBrowserSourceMaps: false,
   
   // Environment-specific settings
   env: {
