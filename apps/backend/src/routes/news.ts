@@ -1,3 +1,4 @@
+
 import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify";
 import { News } from "@/models";
 import { NewsController } from "@/controllers/newsController";
