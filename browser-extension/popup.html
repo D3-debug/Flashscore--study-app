@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsApp - Live Predictions</title>
+    <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+    <div class="extension-container">
+        <!-- Header -->
+        <header class="extension-header">
+            <div class="logo">
+                <img src="icons/icon-32.png" alt="SportsApp">
+                <h1>SportsApp</h1>
+            </div>
+            <div class="status-indicator" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Connected</span>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation">
+            <button class="tab-btn active" data-tab="predictions">Predictions</button>
+            <button class="tab-btn" data-tab="live">Live Scores</button>
+            <button class="tab-btn" data-tab="odds">Odds</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+        </nav>
+
+        <!-- Predictions Tab -->
+        <div class="tab-content active" id="predictions-tab">
+            <div class="section-header">
+                <h2>🔮 AI Predictions</h2>
+                <button class="refresh-btn" id="refreshPredictions">↻</button>
+            </div>
+            
+            <div class="predictions-list" id="predictionsList">
+                <div class="loading-placeholder">Loading predictions...</div>
+            </div>
+
+            <div class="quick-actions">
+                <button class="action-btn primary" id="viewAllPredictions">
+                    View All Predictions
+                </button>
+            </div>
+        </div>
+
+        <!-- Live Scores Tab -->
+        <div class="tab-content" id="live-tab">
+            <div class="section-header">
+                <h2>⚽ Live Scores</h2>
+                <select id="sportFilter" class="sport-filter">
+                    <option value="all">All Sports</option>
+                    <option value="football">Football</option>
+                    <option value="basketball">Basketball</option>
+                    <option value="soccer">Soccer</option>
+                    <option value="baseball">Baseball</option>
+                </select>
+            </div>
+            
+            <div class="live-matches" id="liveMatches">
+                <div class="loading-placeholder">Loading live scores...</div>
+            </div>
+        </div>
+
+        <!-- Odds Tab -->
+        <div class="tab-content" id="odds-tab">
+            <div class="section-header">
+                <h2>📊 Live Odds</h2>
+                <div class="odds-controls">
+                    <select id="oddsBookmaker">
+                        <option value="all">All Bookmakers</option>
+                        <option value="bet365">Bet365</option>
+                        <option value="draftkings">DraftKings</option>
+                        <option value="fanduel">FanDuel</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="odds-list" id="oddsList">
+                <div class="loading-placeholder">Loading odds...</div>
+            </div>
+            
+            <div class="disclaimer">
+                <small>⚠️ For entertainment only. Bet responsibly.</small>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="tab-content" id="settings-tab">
+            <div class="settings-section">
+                <h3>🔔 Notifications</h3>
+                <label class="setting-item">
+                    <input type="checkbox" id="predictionsNotifications" checked>
+                    <span>New Predictions</span>
+                </label>
+                <label class="setting-item">
+                    <input type="checkbox" id="liveScoreNotifications" checked>
+                    <span>Live Score Updates</span>
+                </label>
+                <label class="setting-item">
+                    <input type="checkbox" id="oddsNotifications">
+                    <span>Odds Changes</span>
+                </label>
+            </div>
+
+            <div class="settings-section">
+                <h3>⚡ Auto-refresh</h3>
+                <label class="setting-item">
+                    <select id="refreshInterval">
+                        <option value="30">30 seconds</option>
+                        <option value="60" selected>1 minute</option>
+                        <option value="300">5 minutes</option>
+                        <option value="0">Manual only</option>
+                    </select>
+                    <span>Refresh Interval</span>
+                </label>
+            </div>
+
+            <div class="settings-section">
+                <h3>🎯 Preferences</h3>
+                <label class="setting-item">
+                    <select id="defaultSport">
+                        <option value="all">All Sports</option>
+                        <option value="football">Football</option>
+                        <option value="basketball">Basketball</option>
+                        <option value="soccer">Soccer</option>
+                        <option value="baseball">Baseball</option>
+                    </select>
+                    <span>Default Sport</span>
+                </label>
+                
+                <label class="setting-item">
+                    <input type="range" id="confidenceThreshold" min="50" max="95" value="70">
+                    <span>Min Confidence: <span id="confidenceValue">70%</span></span>
+                </label>
+            </div>
+
+            <div class="settings-section">
+                <button class="action-btn" id="openFullApp">Open Full App</button>
+                <button class="action-btn secondary" id="clearCache">Clear Cache</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="extension-footer">
+            <div class="footer-links">
+                <a href="#" id="aboutLink">About</a>
+                <a href="#" id="supportLink">Support</a>
+                <a href="#" id="privacyLink">Privacy</a>
+            </div>
+            <div class="footer-info">
+                <small>Powered by SportsApp AI • v1.0.0</small>
+            </div>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+{
+  "manifest_version": 3,
+  "name": "SportsApp - Live Odds & Predictions",
+  "version": "1.0.0",
+  "description": "Get real-time sports predictions, odds, and live scores directly in your browser",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "alarms",
+    "notifications",
+    "background"
+  ],
+  "host_permissions": [
+    "https://api.sportscentral.app/*",
+    "https://*.flashscore.com/*",
+    "https://*.bet365.com/*",
+    "https://*.espn.com/*",
+    "https://*.goal.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.flashscore.com/*",
+        "https://*.espn.com/*",
+        "https://*.goal.com/*",
+        "https://*.bet365.com/*",
+        "https://*.draftkings.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "SportsApp - Live Predictions",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.html", "styles/*", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

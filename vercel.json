@@ -1,0 +1,52 @@
+
+{
+  "buildCommand": "npm install --legacy-peer-deps && npm run build --workspace=packages/shared && cd apps/frontend && npm run build",
+  "outputDirectory": "apps/frontend/.next",
+  "framework": "nextjs",
+  "installCommand": "npm install --legacy-peer-deps --no-audit",
+  "functions": {
+    "apps/frontend/src/app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "builds": [
+    {
+      "src": "apps/frontend/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/backend/:path*",
+      "destination": "https://magajico-backend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/api/ml/:path*",
+      "destination": "https://magajico-ml-service.onrender.com/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+
+    // 👇 baseUrl at root
+    "baseUrl": ".",
+    "paths": {
+      // --- Frontend ---
+      "@components": ["apps/frontend/src/app/components"],
+      "@components/*": ["apps/frontend/src/app/components/*"],
+      "@hooks": ["apps/frontend/src/app/hooks"],
+      "@hooks/*": ["apps/frontend/src/app/hooks/*"],
+      "@controllers/*": ["apps/frontend/src/app/controllers/*"],
+      "@api/*": ["apps/frontend/src/app/api/*"],
+      "@services": ["apps/frontend/src/app/services"],
+      "@services/*": ["apps/frontend/src/app/services/*"],
+      "@styles/*": ["apps/frontend/src/app/styles/*"],
+      "@config/*": ["apps/frontend/src/app/config/*"],
+      "@utils": ["apps/frontend/src/app/utils"],
+      "@utils/*": ["apps/frontend/src/app/utils/*"],
+
+      // --- Backend ---
+      "@bcomponents/*": ["apps/backend/src/components/*"],
+      "@btypes/*": ["apps/backend/src/types/*"],
+      "@bakcontrollers/*": ["apps/backend/src/controllers/*"],
+      "@broutes/*": ["apps/backend/src/routes/*"],
+      "@bservices/*": ["apps/backend/src/services/*"],
+      "@bstyles/*": ["apps/backend/src/styles/*"],
+      "@bconfig/*": ["apps/backend/src/config/*"],
+
+      // --- Shared ---
+      "@shared/types/*": ["packages/shared/src/libs/types/*"],
+      "@shared/utils/*": ["packages/shared/src/libs/utils/*"],
+      "@shared/models/*": ["packages/shared/src/libs/models/*"]
+    }
+  },
+  "ts-node": {
+    "esm": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": ["node_modules", "dist", ".next"],
+  "files": [],
+  "references": [
+    { "path": "apps/backend/src" },
+    { "path": "apps/backend/ml" },
+    { "path": "apps/frontend" },
+    { "path": "packages/shared" }
+  ]
+}
