@@ -4,7 +4,7 @@ import React from 'react';
 import AdvancedAnalytics from '../components/AdvancedAnalytics';
 import OptimizedDashboard from '@components/OptimizedDashboard';
 
-export function PersonalAnalyticsPage() {
+function PersonalAnalyticsPage() {
   return (
     <div style={{
       minHeight: '100vh',

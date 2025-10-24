@@ -3,7 +3,6 @@
 import React from 'react';
 import FlashScoreMatchTracker from '../components/FlashScoreMatchTracker';
 import Breadcrumbs from '../components/Breadcrumbs';
-import MatchList from '@components/MatchList';
 
 export default function MatchesPage() {
   return (
@@ -16,7 +15,6 @@ export default function MatchesPage() {
         />
       </div>
       <FlashScoreMatchTracker />
-      <MatchList />
     </div>
   );
 }
