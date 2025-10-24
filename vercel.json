@@ -1,6 +1,6 @@
 
 {
-  "buildCommand": "cd packages/shared && npm install && cd ../../apps/frontend && npm install --legacy-peer-deps && npm run build",
+  "buildCommand": "npm install --legacy-peer-deps && npm install --workspace=packages/shared --legacy-peer-deps && npm install --workspace=apps/frontend --legacy-peer-deps && cd apps/frontend && npm run build",
   "outputDirectory": "apps/frontend/.next",
   "framework": "nextjs",
   "installCommand": "npm install --legacy-peer-deps --no-audit",
